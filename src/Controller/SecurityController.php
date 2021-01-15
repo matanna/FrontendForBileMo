@@ -33,6 +33,7 @@ class SecurityController extends AbstractController
             'last_username' => $lastUsername, 
             'error' => $error,
             'google_id' => $this->getParameter('app.google_id'),
+            'redirect_uri' => $this->getParameter('app.redirect_uri'),
             'token' => $token
         ]);
     }
@@ -46,7 +47,7 @@ class SecurityController extends AbstractController
         
         $response = $client->request(
             'POST',
-            'https://oauth2.googleapis.com/token?code=' .$code . '&client_id=' . $_ENV['GOOGLE_ID'] .'&client_secret=' . $_ENV['GOOGLE_SECRET'] . '&redirect_uri=' . $_ENV['REDIRECT_URI'] . '&grant_type=authorization_code',
+            'https://oauth2.googleapis.com/token?code=' .$code . '&client_id=' . $this->getParameter('app.google_id') .'&client_secret=' . $this->getParameter('app.google_secret') . '&redirect_uri=' . $this->getParameter('app.redirect_uri') . '&grant_type=authorization_code',
             [
                 'headers' => [
                     'Content-Type' => 'application/x-www-form-urlencoded'

@@ -6,6 +6,7 @@
 parameters:
     app.google_id: '%env(GOOGLE_ID)%'
     app.google_secret: '%env(GOOGLE_SECRET)%'
+    app.redirect_uri: '%env(REDIRECT_URI)%'
 services:
     # default configuration for services in *this* file
     _defaults:
