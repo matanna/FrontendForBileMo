@@ -50,7 +50,8 @@ class SecurityController extends AbstractController
             'https://oauth2.googleapis.com/token?code=' .$code . '&client_id=' . $this->getParameter('app.google_id') .'&client_secret=' . $this->getParameter('app.google_secret') . '&redirect_uri=' . $this->getParameter('app.redirect_uri') . '&grant_type=authorization_code',
             [
                 'headers' => [
-                    'Content-Type' => 'application/x-www-form-urlencoded'
+                    'Content-Type' => 'application/x-www-form-urlencoded',
+                    'Content-Length' => 0
                 ]
             ]
         );
